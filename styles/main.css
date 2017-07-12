@@ -19,7 +19,42 @@ html {
   .navbar .logo {
       position: relative; /* positioning will be explained in a resource */
       left: 2rem;
-  }
+      cursor: pointer;  /* produces the finger-pointer icon when you hover over the logo */
+ }
+
+ .navbar .links-container {
+     display: table;
+     position: absolute;
+     top: 0;
+     right: 0;
+     height: 100px;
+     color: white;
+     /* #3 */
+     text-decoration: none;
+ }
+
+ .links-container .navbar-link {
+     display: table-cell;
+     position: relative;
+     height: 100%;
+     padding-left: 1rem;
+     padding-right: 1rem;
+     /* #4 */
+     vertical-align: middle;
+     color: white;
+     font-size: 0.625rem;
+     letter-spacing: 0.05rem;
+     font-weight: 700;
+     text-transform: uppercase;
+     /* #3 */
+     text-decoration: none;
+     cursor: pointer;
+ }
+
+   /* #5 */
+ .links-container .navbar-link:hover {
+     color: rgb(233,50,117);
+ }
 
  *, *::before, *::after {
      -moz-box-sizing: border-box;
@@ -42,7 +77,7 @@ html {
      .column.half { width: 50%; }
      .column.third { width: 33.3%; }
      .column.fourth { width: 25%; }
-     .column.flow-opposite { float: right; } 
+     .column.flow-opposite { float: right; }
  }
 
  /* Large screens (1024px) */
