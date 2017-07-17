@@ -29,6 +29,22 @@ var albumMarconi = {
     ]
 };
 
+var albumTS = {
+    title: '1989',
+    artist: 'Taylor Swift',
+    label: 'Big Machine Records',
+    year: '2014',
+    albumArtUrl: 'assets/images/album_covers/02.png',
+    songs: [
+        { title: 'Welcome to New York', duration: '3:32' },
+        { title: 'Blank Space', duration: '3:51' },
+        { title: 'Style', duration: '3:51'},
+        { title: 'Out of the Woods', duration: '3:55' },
+        { title: 'Shake It Off', duration: '3:39'}
+    ]
+};
+
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
        '<tr class="album-view-song-item">'
@@ -42,13 +58,15 @@ var createSongRow = function(songNumber, songName, songLength) {
 };
 
 
+
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
+
 var setCurrentAlbum = function(album) {
-    // #1
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
-    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-    var albumImage = document.getElementsByClassName('album-cover-art')[0];
-    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
     // #2
     albumTitle.firstChild.nodeValue = album.title;
@@ -67,4 +85,15 @@ var setCurrentAlbum = function(album) {
 
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
+
+    var albums = [albumPicasso, albumMarconi, albumTS];
+    var i = 1;
+
+    albumImage.addEventListener('click', function(event) {
+      setCurrentAlbum(albums[i]);
+      i++;
+      if (i == albums.length) {
+        i = 0;
+      }
+    });
 };
