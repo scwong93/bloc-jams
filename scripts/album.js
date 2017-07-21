@@ -274,6 +274,19 @@ var updatePlayerBarSong = function() {
 
 };
 
+var togglePlayFromPlayerBar = function() {
+  var songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+  if (currentSoundFile.isPaused()) {
+    songNumberCell.html(pauseButtonTemplate);
+    $('.main-controls .play-pause').html(playerBarPauseButton);
+    currentSoundFile.play();
+  } else if (currentSoundFile) {
+    songNumberCell.html(playButtonTemplate);
+    $('.main-controls .play-pause').html(playerBarPlayButton);
+    currentSoundFile.pause();
+  }
+}
+
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 var playerBarPlayButton = '<span class="ion-play"></span>';
@@ -292,6 +305,8 @@ var $nextButton = $('.main-controls .next');
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     setupSeekBars();
+
+    $('.main-controls .play-pause').click(togglePlayFromPlayerBar);
 
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
