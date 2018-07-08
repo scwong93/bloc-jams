@@ -16,11 +16,14 @@ var setSong = function(songNumber) {
      setVolume(currentVolume);
 };
 
+<<<<<<< HEAD
 var seek = function(time) {
     if (currentSoundFile) {
         currentSoundFile.setTime(time);
     }
 }
+=======
+>>>>>>> 0ccdbe99adccc1897377d14b84b94f52a8b0ac89
 
 var setVolume = function(volume) {
      if (currentSoundFile) {
@@ -55,19 +58,26 @@ var createSongRow = function(songNumber, songName, songLength) {
              $(this).html(pauseButtonTemplate);
              setSong(songNumber);
              currentSoundFile.play();
+<<<<<<< HEAD
              updateSeekBarWhileSongPlays();
              currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
              var $volumeFill = $('.volume .fill');
              var $volumeThumb = $('.volume .thumb');
              $volumeFill.width(currentVolume + '%');
              $volumeThumb.css({left: currentVolume + '%'});
+=======
+             currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+>>>>>>> 0ccdbe99adccc1897377d14b84b94f52a8b0ac89
              updatePlayerBarSong();
           } else if (currentlyPlayingSongNumber === songNumber) {
             if (currentSoundFile.isPaused()) {
                 $(this).html(pauseButtonTemplate);
                 $('.main-controls .play-pause').html(playerBarPauseButton);
                 currentSoundFile.play();
+<<<<<<< HEAD
                 updateSeekBarWhileSongPlays();
+=======
+>>>>>>> 0ccdbe99adccc1897377d14b84b94f52a8b0ac89
             } else {
                 $(this).html(playButtonTemplate);
                 $('.main-controls .play-pause').html(playerBarPlayButton);
@@ -228,7 +238,10 @@ var trackIndex = function(album, song) {
 
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
+<<<<<<< HEAD
     updateSeekBarWhileSongPlays();
+=======
+>>>>>>> 0ccdbe99adccc1897377d14b84b94f52a8b0ac89
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
 
@@ -256,7 +269,10 @@ var previousSong = function() {
 
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
+<<<<<<< HEAD
     updateSeekBarWhileSongPlays();
+=======
+>>>>>>> 0ccdbe99adccc1897377d14b84b94f52a8b0ac89
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
 
